@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h2 {
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.content {
+    height: calc(100vh - 100px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mise en page de la page d'accueil */
+.First-container, .Second-container, .Third-container, .Fourth-container, .Fifth-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 80%;
+}
+
+.First-container h1, .Second-container h1, .Third-container h1, .Fourth-container h1, .Fifth-container h1 {
+    margin: 10px 0;
+}
+
+.First-container p, .Second-container p, .Third-container p, .Fourth-container p, .Fifth-container p {
+    font-size: 1.2em;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="CSS/header.css">
+    <link type ="text/css" rel="stylesheet" href="CSS/index.css">
+    <title>Projet Infra</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/" class="logo">
+            <img src="/ASSETS/IMG/logo-ynov-aix.png" alt="logo">
+            <div class="logo-text">
+                <p>Documentation Projet Infra</p>
+                <h1>Mathis Gredt et Valentin Lamine</h1>
+            </div>
+            </a>
+        </div>
+        <div class="lien">
+            <input class="menu-button" type="checkbox" id="menu-button">
+            <label for="menu-button">
+                <img src="/ASSETS/IMG/menu.svg" alt="menu" class="burger">
+                <img src="/ASSETS/IMG/close.svg" alt="close" class="close">
+            </label>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">architecture</a></li>
+                    <li><a href="Exploitation.html">Exploitation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="content">
+        <div class="First-container">
+            <p>Le projet consiste à mettre en place un système d'information (SI) pour une petite entreprise en utilisant des machines virtuelles (VMs) interconnectées via un switch ou wifi. L'architecture proposée comprend un pare-feu avec DHCP, DNS, filtrage réseau et routage, deux clients (1 Windows et 1 Linux), un serveur Linux pour la sauvegarde du site web et un autre serveur Linux pour l'hébergement du site web.</p><br>
+            <p>L'accès au serveur de sauvegarde se fera uniquement via le réseau interne de l'entreprise, tandis que l'accès au site web sera possible depuis le réseau internet ou externe.</p><br>
+            <p>Les livrables attendus incluent un rapport de projet faisant état des solutions techniques et transverses mises en œuvre, une documentation d'architecture détaillant la mise en œuvre des bonnes pratiques et les configurations nécessaires pour mettre en place la solution, ainsi qu'une documentation d'exploitation détaillant l'utilisation des outils et services mis en place et les procédures de sauvegarde et de restauration du site web.</p><br>
+            <p>L'évaluation du projet se fera à travers une évaluation intermédiaire, une présentation finale sous forme de démonstration pour l'ensemble du projet, ainsi que des livrables (documentation et code) pour chaque partie du projet. Le projet inclut également des bonus tels que la mise en place d'un certificat auto-signé ou signé et l'explication de celui-ci sur le site web.</p><br>
+        </div>
+        <div class="Second-container">
+            <h1>I. Introduction</h1>
+            <p>L'objectif de cette documentation est de présenter l'architecture réseau et les services mis en place dans le cadre du projet XYZ. Elle permettra aux administrateurs système de comprendre la structure du réseau et les configurations nécessaires pour la mise en place des différents services.</p>
+        </div>
+        <div class="Third-container">
+            <h1>II. Définition du réseau</h1>
+                <p>
+                    Topologie du réseau<br>
+                    Description de la topologie physique et logique du réseau<br>
+                    Présentation des différents éléments constitutifs du réseau (switches, routeurs, firewalls, etc.)<br>
+                    Schéma de la topologie réseau<br>
+                    Description des hosts et des services implantés/répartis<br>
+                    Liste des différents serveurs (web, messagerie, DNS, etc.) et des clients du réseau<br>
+                    Répartition des services sur les différents serveurs<br>
+                    Architecture réseau (LAN, WAN, VLAN)<br>
+                    Description des différents segments du réseau (LAN, WAN, VLAN)<br>
+                    Explication de la configuration des différents segments du réseau<br>
+                </p>
+        </div>
+        <div class="Fourth-container">
+            <h1>III. Bonnes pratiques</h1>
+            <p>Principes de sécurité<br>
+                Gestion des accès et des identités (authentification, autorisation)<br>
+                Chiffrement des données<br>
+                Gestion des certificats<br>
+                Sauvegarde des données<br>
+                Gestion de la bande passante<br>
+                Définition des règles de gestion de la bande passante<br>
+                Configuration des équipements pour la gestion de la bande passante<br>
+                Sécurisation des échanges<br>
+                Configuration du pare-feu<br>
+                Configuration d'un VPN<br>
+                Maintenance du réseau<br>
+                Procédures de maintenance (mise à jour des équipements, surveillance du réseau)<br>
+                Gestion des incidents (problèmes de connexion, pannes de matériel)<br>
+            </p>
+        </div>
+        <div class="Fifth-container">
+            <h1>IV. Configurations</h1>
+            <p>Configuration système<br>
+                Configuration des différents serveurs et des clientsv
+                Configuration des systèmes d'exploitation (Windows, Linux)<br>
+                Configuration réseau<br>
+                Configuration des équipements (switches, routeurs, firewalls)<br>
+                Configuration des protocoles (TCP/IP, DNS, DHCP)<br>
+                Configuration des services<br>
+                Configuration des serveurs web (Apache, Nginx)<br>
+                Configuration des serveurs de messagerie (Exchange, Postfix)</p>
+        </div>
+    </div>
+</body>
+</html>
