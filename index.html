@@ -12,7 +12,7 @@
     <div class="header">
         <div class="logo">
             <a href="/" class="logo">
-            <img src="ASSETS/IMG/logo-ynov-aix.png" alt="logo">
+            <img src="ASSETS/IMG_HEADER/logo-ynov-aix.png" alt="logo">
             <div class="logo-text">
                 <p>Documentation Projet Infra</p>
                 <h1>Mathis Gredt et Valentin Lamine</h1>
@@ -22,12 +22,12 @@
         <div class="lien">
             <input class="menu-button" type="checkbox" id="menu-button">
             <label for="menu-button">
-                <img src="ASSETS/IMG/menu.svg" alt="menu" class="burger">
-                <img src="ASSETS/IMG/close.svg" alt="close" class="close">
+                <img src="ASSETS/IMG_HEADER/menu.svg" alt="menu" class="burger">
+                <img src="ASSETS/IMG_HEADER/close.svg" alt="close" class="close">
             </label>
             <nav class="menu">
                 <ul>
-                    <li><a href="index.html">architecture</a></li>
+                    <li><a href="index.html">Architecture</a></li>
                     <li><a href="Exploitation.html">Exploitation</a></li>
                 </ul>
             </nav>
@@ -70,14 +70,52 @@
         </div>
         <div class="Fifth-container">
             <h1>IV. Configurations</h1>
-            <p>Configuration système<br>
-                Configuration des différents serveurs et des clientsv
+                <p>Configuration système<br>
+                Configuration des différents serveurs et des clients<br>
                 Configuration des systèmes d'exploitation (Windows, Linux)<br>
                 Configuration réseau<br>
                 Configuration des équipements (switches, routeurs, firewalls)<br>
                 Configuration des protocoles (TCP/IP, DNS, DHCP)<br>
                 Configuration des services<br>
-                Configuration des serveurs web (Apache, Nginx)<br>
+                <div class="categorie">
+                    <h2>1. Mise à jour du Système</h2><br>
+                        <p>Nous commençons toujours par la mise à jour du système avant d’installer de nouvelles choses sur notre machine, pour ce faire nous exécutons la commande: "apt update && apt upgrade "</p><br>
+                        <img src="ASSETS/IMG_INDEX/Partie4/MAJ_Système/maj_system.png" alt="apache">
+                    <h2>2. Installation D'Apache</h2>
+                        <p>Conformément aux consignes nous allons ensuite installer le système apache2 sur notre machine, pour se faire on exécute la commande: "apt install apache2"</p><br>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Install_Apache/apache.png">
+                        <p>Apache2 étant déjà installé nous passons à la suite.</p><br>
+                    <h2>3. Installation PHP et MariaDB</h2>
+                        <p>Nous installons ensuite php avec la commande: "apt install php php-mysql"</p><br>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Install_PHP_Maria/php.png">
+                        <p>Puis nous installons MariaDB serveur avec la commande: "apt install mariadb-server"</p><br>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Install_PHP_Maria/Maria_Server.png">
+                        <p>Ainsi que MariaDB client avec la commande: "apt install mariadb-server"</p><br>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Install_PHP_Maria/Maria_Client.png">
+                    <h2>4. Ajout base de données MariaDB</h2>
+                        <p>Nous créons ensuite une base de données avec MariaDB pour ce faire nous utilisons les commandes :</p><br>
+                        <p>"- systemctl enable mariadb"</p>
+                        <p>"-systemctl start mariadb"</p>
+                        <p>"-systemctl status mariadb"</p>
+                        <img src="ASSETS/IMG_INDEX/Partie4/BDD Maria/bdd_maria1.png">
+                        <img src="ASSETS/IMG_INDEX/Partie4/BDD Maria/bdd_maria2.png">
+                        <p>Nous pouvons voir que la base de données est activée maintenant.</p>
+                    <h2>5. Réglage du serveur</h2>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/serveur.png">
+                        <p>Maintenant que notre serveur est fonctionnel comme nous pouvons le voir sur la capture présente ci-dessus, il faut maintenant le configurer pour ce faire nous essayons tout d’abord de changer le fichier html. Pour ce faire nous localisons le fichier html et le remplaçons par le nôtre puis l’on redémarre le serveur: "cd /var/www/html"</p>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/localiser_html.png">
+                        <p>Nous ouvrons ensuite un éditeur de fichier (nano) avec la commande: "nano test.html"</p>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/nano_html.png">
+                        <p>J’ai écrit dans le fichier puis je l’enregistre sous le nom index.html</p>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/enregistrement_html.png">
+                        <p>
+                        On m’averti que le fichier index.html sera écrasé, je confirme afin de remplacer la page par défaut.<br>
+                        Je redémarre ensuite mon serveur web avec la commande: "systemctl restart apache2"<br>
+                        Nous voyons donc ensuite que le serveur fonctionne bien à la bonne adresse IP depuis mon Windows. 
+                        </p>
+                        <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/result_html.png">
+                        <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/verif_html.png">
+                </div>
         </div>
     </div>
 </body>
