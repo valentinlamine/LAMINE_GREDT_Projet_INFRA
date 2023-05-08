@@ -1,26 +1,26 @@
 # Projet_infra
 
-## rendu attendu
+Ce GitHub est le rendu du Projet Infra dans le cadre d'un exercice donné par Aix Ynov Campus.
 
-* dépôt GIT des documents ou wiki web (en version pdf si non accessible à distance
-  par le formateur)
-* documentation d'architecture
-* définition du réseau, des hosts, implantation/répartition des services
-* détailler la mise en œuvre des bonnes pratiques
-* détailler les configurations à réaliser pour mettre en œuvre la solution (système, réseau, services)
-* documentation d'exploitation
-* détailler l'utilisation des outils/services mis en place
-* comment sauvegarder une nouvelle ressources web ?
-* comment restaurer à une date antérieure le site web ?
+Pour rappel le projet était de mettre en place un SI pour une petite entreprise.
 
-## maquette
+Le but était de proposer une architecture comprenant:
 
-* Schéma réseau
-* Plan d'adressage
-* Différentes VMs (possibilité de s'interconnecter via switch ou wifi)
-* Tableau de filtrage
-* Sauvegarde et restauration fonctionnelle (des fichiers sources du site web)
-* La sauvegarde doit être automatisée d'une façon ou d'une autre (tous les jours par
-  exemple)
-* Une documentation pour la restauration
-* Un site web tournant sur Apache ou Nginx avec le détail du projet (schémas, documentations…)
+• Un parefeu (avec DHCP, DNS, filtrage réseau, routage…)
+• 2 clients (1 Windows et 1 Linux)
+• 1 serveur linux (sauvegarde du site web)
+• 1 serveur linux (hébergement site web)
+
+L’accès au serveur linux de sauvegarde peut se faire seulement via le réseau interne de la société (soit les deux clients et le serveur web).
+L’accès au site web peut se faire du réseau internet ou externe.
+
+# Rendu attendu
+
+Pour ce projet, nous devions rendre une documentation expliquant toute les étapes que nous avons suivit pour mener à bien le projet. Cette documentation devait être hébergé sur un site web ainsi que sur le serveur web de notre VM. Nous avons décidé de séparer notre site web en 2 pages:
+
+- index.html qui est la page regroupants l'architecture de notre SI
+- Exploitation.html qui est la page qui contient tout les services en rapport avec les VM
+
+# Lancement du projet
+
+Pour accéder à la documentation du projet, rien de plus simple, il vous suffit de vous rendre à la racine du dossier et de cliquer sur "index.html" pour lancer le site web. Une fois sur le site vous pourrez naviguer entre les 2 pages de documentations.
