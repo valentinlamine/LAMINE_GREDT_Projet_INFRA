@@ -55,8 +55,11 @@
             <div class="categorie">
                 <h1>II. Définition du réseau</h1>
                 <h2>1. Topologie du réseau</h2>
-                    
-                <h2>2. Description des composant du réseaux</h2>
+                    <p>Voici une schéma sur Cisco Packet Tracer représentant notre réseaux pour le projet</p>
+                    <img src="ASSETS/IMG_INDEX/Partie2/Topologie" alt="Schema" class="Schema"><br>
+                    <p>Nous utilisons une topologie de type "Full mesh" qui consiste à avoir un réseau local(LAN) où tous les appareils sont connectés entre-eux.</p><br>
+                    <p>Le WAN est composé de notre pare-feu PfSense qui permet à nos VM de communiquer avec internet</p><br>
+                <h2>2. Description des composants du réseaux</h2>
                     <p>Notre réseaux est composé de plusieurs machines pour couvrir toute les demandes de l'entreprise, voici une liste réunissant tout les composants</p><br>
                     <p>- Un client Debian</p><br>
                     <p>- Un client Windows</p><br>
@@ -68,20 +71,21 @@
                     <p>Le LAN est composé de 4 machines, le client Debian, le client Windows, le server de sauvegarde et le server Web</p><br>
                     <p>Le WAN est composé uniquement de notre pare-feu PfSense qui permet à nos VM de communiquer avec internet</p><br>
                     <p>A partie de ce plan, nous avons conceptualisé un plan d'adressage:</p><br>
-                    <p>Réseaux Wan (internet) : 192.168.1.2/28<br>
-                        Adresse IP du pare-feu : 192.168.1.3<br>
-                        Réseaux LAN : 192.168.1.1/28<br>
-                        -	Adresse IP du client Windows : 192.168.1.4<br>
-                        -	Adresse IP du client Linux : 192.168.1.5<br>
-                        -	Adresse IP du serveur de sauvegarde : 192.168.1.6<br>
-                        -	Adresse IP du serveur web : 192.168.1.7<br>
+                    <p>Réseaux WAN (internet) : 192.168.159.134/24<br>
+                        Adresse IP du pare-feu (réseau LAN) : 10.0.0.1/29<br>
+                        -	Adresse IP du serveur de sauvegarde : 10.0.0.2<br>
+                        -	Adresse IP du client Windows : 10.0.0.3/29<br>
+                        -	Adresse IP du serveur web : 10.0.0.4<br>
+                        -	Adresse IP du client Linux : 10.0.0.5/29<br>
                     </p><br>
-                    <p>Ce plan d'adressage utilise le réseau privé IPv4 192.168.1.0/28 pour connecter les réseaux LAN et WAN. Le réseau WAN est connecté à Internet et est utilisé pour fournir une connectivité à Internet aux réseaux LAN.<br><br>
-                        L'adresse IP 192.168.1.2/28 est attribuée au réseau WAN pour la communication avec Internet.<br>
-                        Le pare-feu est placé entre les réseaux LAN et WAN pour assurer la sécurité et est configuré avec l'adresse IP 192.168.1.3.<br>
-                        Le réseau LAN est utilisé pour connecter les périphériques de l'entreprise et utilise également le sous-réseau 192.168.1.0/28. Les adresses IP des 4 machines du LAN ont été attribuées de 192.168.1.4 jusqu'a 192.162.1.7<br>
-                        Le masque de sous-réseau utilisé est 255.255.255.240, ce qui permet de prendre en charge jusqu'à 14 périphériques sur chaque sous-réseau. Ce plan d'adressage permet de connecter les périphériques sur différents réseaux tout en offrant une sécurité et une connectivité à Internet.<br>
-                    </p>
+                    <p>
+                        Le plan d'adressage présenté comporte un réseau WAN (internet) ayant pour adresse IP 192.168.159.134/24. Cela signifie que le réseau peut avoir jusqu'à 254 hôtes et que le masque de sous-réseau est de 255.255.255.0.<br>
+                        Ensuite, le réseau LAN est configuré avec l'adresse IP 10.0.0.1/29. Cela signifie que le masque de sous-réseau est de 255.255.255.248, et que le réseau peut avoir jusqu'à 6 hôtes. Cette adresse IP est attribuée au pare-feu.<br>
+                        Le serveur de sauvegarde est configuré avec l'adresse IP 10.0.0.2, qui se trouve dans le même réseau que le pare-feu.<br>
+                        Le client Windows est configuré avec l'adresse IP 10.0.0.3/29, ce qui signifie que le masque de sous-réseau est de 255.255.255.248 et que le client peut avoir jusqu'à 6 hôtes. Il est important de noter que cette adresse IP se trouve également dans le même réseau que le pare-feu et le serveur de sauvegarde.<br>
+                        Le serveur web est configuré avec l'adresse IP 10.0.0.4, qui se trouve également dans le même réseau que les autres équipements.<br>
+                        Enfin, le client Linux est configuré avec l'adresse IP 10.0.0.5/29, qui est dans le même réseau que le pare-feu, le serveur de sauvegarde, et le client Windows.<br>
+                        En résumé, ce plan d'adressage utilise deux réseaux distincts : un réseau WAN pour accéder à internet, et un réseau LAN pour connecter les différents équipements du réseau local. Chaque équipement est configuré avec une adresse IP unique pour permettre la communication entre eux.</p><br>
             </div>
         </div>
         <div class="Fourth-container">
