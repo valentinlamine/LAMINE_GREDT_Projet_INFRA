@@ -23,4 +23,6 @@ Pour ce projet, nous devions rendre une documentation expliquant toute les étap
 
 # Lancement du projet
 
-Pour accéder à la documentation du projet, rien de plus simple, il vous suffit de vous rendre à la racine du dossier et de cliquer sur "index.html" pour lancer le site web. Une fois sur le site vous pourrez naviguer entre les 2 pages de documentations.
+Si vous êtes connecté à Internet, vous pouvez simplement vous rendre à l'URL suivante : [Projet Infra](https://valentinlamine.github.io/Projet_infra/)
+
+Sinon, pour accéder à la documentation du projet, rien de plus simple, il vous suffit de vous rendre à la racine du dossier et de cliquer sur "index.html" pour lancer le site web. Une fois sur le site vous pourrez naviguer entre les 2 pages de documentations.
