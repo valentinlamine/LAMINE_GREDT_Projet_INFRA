@@ -35,7 +35,7 @@
     </div>
     <div class="content">
         <div class="First-container">
-            <div class="categorie">
+            <div class="catégorie">
                 <div class="title">
                     <h1>Projet Infra</h1>
                 </div>
@@ -46,28 +46,28 @@
             </div>
         </div>
         <div class="Second-container">
-            <div class="categorie">
+            <div class="catégorie">
                 <h1>I. Introduction</h1>
                 <p>L'objectif de cette documentation est de présenter l'architecture réseau et les services mis en place dans le cadre du Projet Infra. Elle permettra aux administrateurs système de comprendre la structure du réseau et les configurations nécessaires pour la mise en place des différents services.</p><br>
             </div>
         </div>
         <div class="Third-container">
-            <div class="categorie">
+            <div class="catégorie">
                 <h1>II. Définition du réseau</h1>
                 <h2>1. Topologie du réseau</h2>
-                    <p>Voici une schéma sur Cisco Packet Tracer représentant notre réseaux pour le projet</p>
+                    <p>Voici un schéma sur Cisco Packet Tracer représentant notre réseau pour le projet</p>
                     <img src="ASSETS/IMG_INDEX/Partie2/Topologie" alt="Schema" class="Schema"><br>
                     <p>Nous utilisons une topologie de type "Full mesh" qui consiste à avoir un réseau local(LAN) où tous les appareils sont connectés entre-eux.</p><br>
                     <p>Le WAN est composé de notre pare-feu PfSense qui permet à nos VM de communiquer avec internet</p><br>
                 <h2>2. Description des composants du réseaux</h2>
-                    <p>Notre réseaux est composé de plusieurs machines pour couvrir toute les demandes de l'entreprise, voici une liste réunissant tout les composants</p><br>
+                    <p>Notre réseaux est composé de plusieurs machines pour couvrir toutes les demandes de l'entreprise, voici une liste réunissant tous les composants</p><br>
                     <p>- Un client Debian</p><br>
                     <p>- Un client Windows</p><br>
                     <p>- Un server Web</p><br>
                     <p>- Un server de sauvegarde</p><br>
                     <p>- Un server PfSense qui nous sert de Pare-Feu</p><br>
                 <h2>3. Description des segments LAN et WAN</h2>
-                    <p>Passons maintenant à une description plus précise de notre réseaux avec notamment notre LAN et notre WAN</p><br>
+                    <p>Passons maintenant à une description plus précise de notre réseau avec notamment notre LAN et notre WAN</p><br>
                     <p>Le LAN est composé de 4 machines, le client Debian, le client Windows, le server de sauvegarde et le server Web</p><br>
                     <p>Le WAN est composé uniquement de notre pare-feu PfSense qui permet à nos VM de communiquer avec internet</p><br>
                     <p>A partie de ce plan, nous avons conceptualisé un plan d'adressage:</p><br>
@@ -89,43 +89,44 @@
             </div>
         </div>
         <div class="Fourth-container">
-            <div class="categorie">
+            <div class="catégorie">
                 <h1>III. Bonnes pratiques</h1>
-                <p>Voici tout les bonnes pratiques que nous avons respecté dans le cadre de ce projet</p><br>
-                <p>Utiliser des adresses IP privées pour les réseaux internes : pour éviter les conflits d'adresses IP avec les adresses IP publiques sur Internet, il est recommandé d'utiliser des adresses IP privées pour les réseaux internes</p><br>
-                <p>Utiliser des sous-réseaux pour organiser les adresses IP : pour organiser efficacement les adresses IP, il est recommandé d'utiliser des sous-réseaux. Cela permet de diviser un réseau en plusieurs sous-réseaux plus petits, ce qui facilite la gestion et l'attribution des adresses IP.</p><br>
-                <p>Utiliser un pare-feu : pour protéger les réseaux internes contre les attaques externes, il est recommandé d'utiliser un pare-feu. Le pare-feu doit être configuré de manière à bloquer toutes les connexions non autorisées et à autoriser uniquement le trafic légitime.</p><br>
-                <p>Mettre en place des sauvegardes régulières : pour garantir la disponibilité des données en cas de sinistre, il est recommandé de mettre en place des sauvegardes régulières. Les données doivent être sauvegardées sur des supports externes et stockées dans un endroit sûr.</p><br>
+                <p>Voici la liste de toutes les bonnes pratiques que nous avons mises dans le cadre de ce projet : </p><br>
+                <p> - La configuration d'un masque de sous réseau adapté à nos besoins (/29 -> 255.255.255.248)</p><br>
+                <p> - La configuration d'une adresse IP statique pour chaque machine assurant la stabilité du réseau</p><br>
+                <p> - La configuration d'une sécurité pour la restauration de la sauvegarde du serveur web vérifiant que le fichier de sauvegarde est bien présent avant de lancer la restauration</p><br>
+                <p> - Mise en place d'une connexion SSH par clé de 4096 bits entre le serveur de sauvegarde et le serveur web</p><br>
+                <p> - Mise en place de plusieurs règles de pare-feu sur le serveur PfSense pour sécuriser le réseau</p><br>
             </div>
         <div class="Fifth-container">
-            <div class="categorie">
+            <div class="catégorie">
                 <h1>IV. Configurations</h1>
                 <h2>1. Création pare-feu avec PfSense</h2>
-                <p>Pour la création de la machine comme à notre habitude nous suivons les options habituelles de VmWare en ajoutant l’iso de Pfsense. Cependant notre serveur aura besoin de deux cartes réseau pour gérer le LAN et le WAN, nous ajoutons donc une deuxième carte réseau elle configuré en custom</p><br>
+                <p>Pour la création de la machine comme à notre habitude, nous suivons les options habituelles de VmWare en ajoutant l’iso de Pfsense. Cependant, notre serveur aura besoin de deux cartes réseau pour gérer le LAN et le WAN, nous ajoutons donc une deuxième carte réseau qui elle est configuré en custom</p><br>
                 <img src="ASSETS/IMG_INDEX/Partie4/Création_Pare_Feu/iso_pfsense.png" alt="iso_pfsense"><br>
-                <p>Une fois sur la machine nous décidons bien sûr de l’installer</p>
+                <p>Une fois sur la machine, nous décidons bien sûr de l’installer</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Création_Pare_Feu/install.png" alt="install"><br>
                 <p>Nous sélectionnons après le clavier français ainsi que la répartition Auto (2FS). Nous arrivons donc ensuite sur la page principale de pfsense (après redémarrage)</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Création_Pare_Feu/2FS.png" alt="2FS"><br>
             <h2>2. Configuration LAN</h2>
-                <p>Nous allons ensuite configrer le LAN pour ce faire nous cliquons sur l’option Set Interface(s) IP adress (option 2)</p>
+                <p>Nous allons ensuite configurer le LAN pour ce faire, nous cliquons sur l’option Set Interface(s) IP address (option 2)</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_LAN/IP_LAN.png" alt="IP_LAN"><br>
-                <p>Ici nous allons définir une étape importante nous choisissons comme masque de sous réseau le 29 car nous n’avons pas plus de 6 machines à gérer dans notre réseau et le sous réseau 29 vaut :<br>
+                <p>Ici nous allons définir une étape importante, nous choisissons comme masque de sous réseau le 29, car nous n’avons pas plus de 6 machines à gérer dans notre réseau et le sous réseau 29 vaut :<br>
                     (2 ** 3) – 2 = 8 exactement ce dont nous avons besoin.
                 </p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_LAN/masque_reseau.png" alt="masque_reseau"><br>
                 <p>Nous laissons ensuite l’adresse de passerelle se créer automatiquement ainsi que l’adresse IP V6 aussi</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_LAN/ipv6.png" alt="ipv6"><br>
             <h2>3. Configuration DHCP,IP,HTTP</h2>
-                <p>Nous activons le DHCP par défaut pour éviter les bug d'IP similaire<br>
-                    Puis nous choisissons les adresse IP de début et de fin de notre réseau :<br>
+                <p>Nous activons le DHCP par défaut pour éviter les bugs d'IP similaire<br>
+                    Puis nous choisissons les adresses IP de début et de fin de notre réseau :<br>
                     Notre réseau débute sur l’adresse "10.0.0.0" et se termine donc sur l’adresse "10.0.0.7" avec donc une longueur de 8 IP (moins les deux cités ci-dessus).
                 </p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/longueur_reseaux.png" alt="longueur_reseaux"><br>
                 <p>Nous activons ensuite le protocole HTTP afin d’avoir accès au site web de configuration de pfsense</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/HTTP.png" alt="HTTP"><br>
-                <p>Une fois faits-nous pouvons démarrer notre windows afin d’accéder au site pfsense<br>
-                    Nous commençons par vérifier que la carte réseau est bien sur le réseau vmnet19
+                <p>Une fois faites, nous pouvons démarrer notre windows afin d’accéder au site pfsense<br>
+                    Nous commençons par vérifier que la carte réseau est bien sûr le réseau vmnet19
                 </p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/VMnet19.png" alt="VMnet19"><br>
                 <p>Puis nous démarrons la machine pour accéder au site web avec pour utilisateur "admin" et mot de passe "pfsense"</p>
@@ -134,27 +135,27 @@
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/mdp_Pfsense.png" alt="mdp_Pfsense"><br>
                 <p>Nous arrivons donc à la fin de la configuration du pare-feu</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/fin_config.png" alt="fin_config"><br>
-                <p>Nous pouvons donc voir que notre machine à bien accès à internet ainsi que son IP est correcte</p>
+                <p>Nous pouvons donc voir que notre machine a bien accès à internet ainsi que son IP est correcte</p>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/acces_internet.png" alt="acces_internet"><br>
                 <img src="ASSETS/IMG_INDEX/Partie4/Config_DHCP_IP/bonne_ip.png" alt="bonne_ip"><br>
             </div>
-            <div class="categorie">
+            <div class="catégorie">
                 <h2>1. Mise à jour du Système</h2><br>
-                    <p>Nous commençons toujours par la mise à jour du système avant d’installer de nouvelles choses sur notre machine, pour ce faire nous exécutons la commande: "apt update && apt upgrade "</p><br>
+                    <p>Nous commençons toujours par la mise à jour du système avant d’installer de nouvelles choses sur notre machine, pour ce faire, nous exécutons la commande: "apt update && apt upgrade "</p><br>
                     <img src="ASSETS/IMG_INDEX/Partie4/MAJ_Système/maj_system.png" alt="apache">
                 <h2>2. Installation D'Apache</h2>
-                    <p>Conformément aux consignes nous allons ensuite installer le système apache2 sur notre machine, pour se faire on exécute la commande: "apt install apache2"</p><br>
+                    <p>Conformément aux consignes, nous allons ensuite installer le système apache2 sur notre machine, pour ce faire, on exécute la commande : "apt install apache2"</p><br>
                     <img src="ASSETS/IMG_INDEX/Partie4/Install_Apache/apache.png">
-                    <p>Apache2 étant déjà installé nous passons à la suite.</p><br>
+                    <p>Apache2 étant déjà installé, nous passons à la suite.</p><br>
                 <h2>3. Installation PHP et MariaDB</h2>
-                    <p>Nous installons ensuite php avec la commande: "apt install php php-mysql"</p><br>
+                    <p>Nous installons ensuite php avec la commande : "apt install php php-mysql"</p><br>
                     <img src="ASSETS/IMG_INDEX/Partie4/Install_PHP_Maria/php.png">
-                    <p>Puis nous installons MariaDB serveur avec la commande: "apt install mariadb-server"</p><br>
+                    <p>Puis nous installons MariaDB serveur avec la commande : "apt install mariadb-server"</p><br>
                     <img src="ASSETS/IMG_INDEX/Partie4/Install_PHP_Maria/Maria_Server.png">
                     <p>Ainsi que MariaDB client avec la commande: "apt install mariadb-server"</p><br>
                     <img src="ASSETS/IMG_INDEX/Partie4/Install_PHP_Maria/Maria_Client.png">
                 <h2>4. Ajout base de données MariaDB</h2>
-                    <p>Nous créons ensuite une base de données avec MariaDB pour ce faire nous utilisons les commandes :</p><br>
+                    <p>Nous créons ensuite une base de données avec MariaDB pour ce faire, nous utilisons les commandes :</p><br>
                     <p>"- systemctl enable mariadb"</p>
                     <p>"-systemctl start mariadb"</p>
                     <p>"-systemctl status mariadb"</p>
@@ -163,21 +164,22 @@
                     <p>Nous pouvons voir que la base de données est activée maintenant.</p>
                 <h2>5. Réglage du serveur</h2>
                     <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/serveur.png">
-                    <p>Maintenant que notre serveur est fonctionnel comme nous pouvons le voir sur la capture présente ci-dessus, il faut maintenant le configurer pour ce faire nous essayons tout d’abord de changer le fichier html. Pour ce faire nous localisons le fichier html et le remplaçons par le nôtre puis l’on redémarre le serveur: "cd /var/www/html"</p>
+                    <p>Maintenant que notre serveur est fonctionnel comme nous pouvons le voir sur la capture présente ci-dessus, il faut maintenant le configurer pour ce faire, nous essayons tout d’abord de changer le fichier html. Pour ce faire, nous localisons le fichier html et le remplaçons par le nôtre puis l’on redémarre le serveur : "cd /var/www/html"</p>
                     <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/localiser_html.png">
-                    <p>Nous ouvrons ensuite un éditeur de fichier (nano) avec la commande: "nano test.html"</p>
+                    <p>Nous ouvrons ensuite un éditeur de fichier (nano) avec la commande : "nano test.html"</p>
                     <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/nano_html.png">
                     <p>Nous avons écrit dans le fichier puis nous l’enregistrons sous le nom "index.html"</p>
                     <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/enregistrement_html.png">
                     <p>
-                    On m’averti que le fichier index.html sera écrasé, je confirme afin de remplacer la page par défaut.<br>
-                    Je redémarre ensuite mon serveur web avec la commande: "systemctl restart apache2"<br>
+                    On m’avertis que le fichier index.html sera écrasé, je confirme afin de remplacer la page par défaut.<br>
+                    Je redémarre ensuite mon serveur web avec la commande : "systemctl restart apache2"<br>
                     Nous voyons donc ensuite que le serveur fonctionne bien à la bonne adresse IP depuis mon Windows. 
                     </p>
                     <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/result_html.png"><br>
                     <img src="ASSETS/IMG_INDEX/Partie4/Réglage_Serveur/verif_html.png">
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>
